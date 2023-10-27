@@ -1,31 +1,29 @@
-import { StyleSheet } from 'react-native';
+import { View,Text, StyleSheet } from 'react-native'
+import EmployeesView from '../../components/employees/EmployeesView';
+import { SafeAreaView } from 'react-native-safe-area-context';
 
-import EditScreenInfo from '../../components/EditScreenInfo';
-import { Text, View } from '../../components/Themed';
 
 export default function TabOneScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
-    </View>
+    
+    <SafeAreaView style={styles.container}>
+      <Text style={styles.title}>Jsonplaceholder Employees List</Text>
+        <EmployeesView/>
+    </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    paddingHorizontal:16,
+    gap:16,
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    display:'flex',
+    flexDirection:'column'
   },
   title: {
+    alignSelf:"center",
     fontSize: 20,
     fontWeight: 'bold',
-  },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
   },
 });
